@@ -4,87 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task
+namespace Task_2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите число от 1 до 4 для выбора задания: ");
+            Console.Write("Введите номер задания от 1 до 3 для начала работы: ");
 
-            int task = Convert.ToInt32(Console.ReadLine());
-            
-            switch (task)
+            int question = Convert.ToInt32(Console.ReadLine());
+
+            switch (question)
             {
                 case 1:
-                    Console.Write("Введите 1 число для сравнения: ");
+                    Console.Write("Введите любое 3-х значное число: ");
 
-                    int firstNumber = Convert.ToInt32(Console.ReadLine());
+                    int tdigitТumber = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Write("Введите 2 число для сравнения: ");
-
-                    int secondNumber = Convert.ToInt32(Console.ReadLine());
-
-                    if (firstNumber > secondNumber) {
-                        Console.WriteLine(firstNumber + " Больше чем " + secondNumber);
-                    }
-                    else if (firstNumber == secondNumber)
-                    {
-                        Console.WriteLine(firstNumber + " равно " + secondNumber);
-                    }
-                    else{
-                        Console.WriteLine(secondNumber + " Больше чем " + firstNumber);
-                    }
+                    Console.WriteLine($"Вторая цифра вашего числа: {tdigitТumber / 10 % 10}");
                     break;
                 case 2:
+                    Console.WriteLine("Введите любое число для проверки 3 символа: ");
 
-                    Console.Write("Введите первое число: ");
-                    int number1 = Convert.ToInt32(Console.ReadLine());
+                    int number = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Write("Введите второе число: ");
-                    int number2 = Convert.ToInt32(Console.ReadLine());
-
-                    Console.Write("Введите третье число: ");
-                    int number3 = Convert.ToInt32(Console.ReadLine());
-
-                    int maxNumber = Math.Max(number1, Math.Max(number2, number3));
-
-                    Console.WriteLine("Максимальное число: " + maxNumber);
-
+                    if (number / 100 % 10 == 0) {
+                        Console.WriteLine("3 числа нет");
+                    }
+                    else { 
+                        Console.WriteLine(number % 10);
+                    }
                     break;
                 case 3:
-                    Console.Write("Введите число для проверки его на четность: ");
+                    Console.Write("Введите число(день недели), что бы узнать выходной это или нет: ");
 
-                    int oddNumber = Convert.ToInt32(Console.ReadLine());
+                    int weekend = Convert.ToInt32(Console.ReadLine());
 
-                    if (oddNumber % 2 == 0) {
-                        Console.WriteLine(oddNumber + " Четное число! ");
+                    if (weekend == 6 || weekend == 7)
+                    {
+                        Console.WriteLine($"{weekend} день недели является выходным!") ;
                     }
                     else
                     {
-                        Console.WriteLine(oddNumber + " Нечётное число! ");
+                        Console.WriteLine($"{weekend} день недели не выходной :( ");
                     }
+
                     break;
-                case 4:
-
-                    Console.WriteLine("Введите число N: ");
-                    int N = Convert.ToInt32(Console.ReadLine());
-
-                    Console.WriteLine("Четные числа от 1 до " + N + ":");
-
-                    for (int i = 1; i <= N; i++)
-                    {
-                        if (i % 2 == 0)
-                        {
-                            Console.WriteLine(i);
-                        }
-                    }
-                    break;
-                    default:
-                    Console.WriteLine("Вы ввели неккоректное число!");
+                default:
+                    Console.WriteLine("Введено неккоректное число!");
                     break;
             }
-
         }
     }
 }
